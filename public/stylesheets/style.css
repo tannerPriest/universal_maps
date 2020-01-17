@@ -1,8 +1,21 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 10px;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
 a {
   color: #00B7FF;
+}
+form {
+  display: inline;
+  font-size: 16px;
+}
+button {
+  color: white;
+  background-color: tomato;
+}
+footer {
+  text-align: center;
+}
+#add{
+  background-color: yellowgreen;
 }

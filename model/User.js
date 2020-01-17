@@ -16,7 +16,10 @@ const userSchema = new mongoose.Schema({
         default: Date.now
     },
     googleId: String,
-    itinerary: [],
+    itinerary: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Ride'
+    }],
     favRides: [],
 })
 

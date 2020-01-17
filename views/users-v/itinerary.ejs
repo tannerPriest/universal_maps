@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+
+<form action="/users/itinerary" method="POST">
+    <select name="rideId">
+        <%- rides.map(ride =>
+        `<option value="${ride._id}">${ride.name}</option>`
+        ).join('') %>
+    </select>
+    <button type="submit" id="add">Add Ride To Itinerary </button>
+</form>
+<ul>
+  <% rider.itinerary.forEach((plan)=>{ %>
+    <li>
+        <%= plan.name%>
+        <form action="/users/<%= plan._id %>?_method=DELETE" method="POST"><button value="Delete" type="submit">Delete</button></form>
+    </li>
+<%})%>  
+</ul>
+
+<%- include('../partials/footer') %>

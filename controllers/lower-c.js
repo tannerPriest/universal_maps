@@ -1,8 +1,8 @@
 const rideModel = require('../model/ride-m')
 
 const show = (req, res) => {
-    rideModel.find({ section: 'lower' }, (err, rides) => {
-        res.render('maps-v/lower-1', { title: "Lower Lot!", user: req.user, rides,})
+    rideModel.find({ lotSection: 'lowerlot' }, (err, rides) => {
+        res.render('maps-v/lower-1', { title: "Lower Lot!", user: req.user, rides})
     })
 }
 const ride = (req, res) => {

@@ -1,22 +1,26 @@
 const User = require('../model/User')
-const Joi = require('@hapi/joi');
+const Ride = require('../model/ride-m')
 
-const schema = Joi.object({
-    firstName: Joi.string().required(),
-    lastName: Joi.string().required(),
-    email: Joi.string().required().email(),
+const itinerary = (req, res, next) => {
+  User.findById(req.user)
+  .populate('itinerary').exec((err, rider) => {
+    Ride.find({_id: {$nin: rider.itinerary}},(err, rides) => {
+      res.render('users-v/itinerary', {title: "Itinerary Page", user: req.user, rider, rides})
+    }
+  )
 })
-
-const create = async (req, res) => {
-   const {error} = schema.validate(req.body)
-    if(error) return res.status(400).send(error.details[0].message);
-    const user = new User(req.body)
-    user.save(function(err) {
-      if (err) return res.render('error')
-      res.redirect('/main')
-    })
-  }
-
+}
+const add = (req, res) => {
+  User.findById(req.user, (err, rider) => {
+      if (err) { console.log('err') }
+      console.log(req.body.rideId)
+        rider.itinerary.push(req.body.rideId);
+        rider.save(err => {
+            res.redirect(`/users/itinerary`);
+        })
+  });
+}
   module.exports = {
-      create,
+      itinerary,
+      add
   }

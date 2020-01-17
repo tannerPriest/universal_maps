@@ -17,7 +17,6 @@ const usersRouter = require('./routes/users');
 const mapRouter = require('./routes/main')
 const upperRouter = require('./routes/upper-r')
 const lowerRouter = require('./routes/lower-r')
-const rideRouter = require('./routes/rides-r')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -42,7 +41,7 @@ app.use('/users', usersRouter);
 app.use('/main', mapRouter);
 app.use('/upperlot', upperRouter);
 app.use('/lowerlot', lowerRouter)
-app.use('/ride', rideRouter)
+app.use('/:id', indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
