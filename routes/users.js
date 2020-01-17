@@ -19,4 +19,6 @@ router.get('/', function(req, res, next) {
 router.get('/itinerary', isUser, iCtrl.itinerary)
 router.post('/itinerary',isUser, iCtrl.add)
 
+router.delete('/:id', isUser, iCtrl.delete)
+
 module.exports = router;
