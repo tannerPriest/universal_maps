@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+
+<h1>LOWER LOT SECTION</h1>
+
+<ul> 
+<% rides.forEach(function(ride){ %>
+    <li><a href="/lowerlot/<%= ride._id%>"><%= ride.name %></a></li>
+<%})%>
+ </ul>
+<p><a href="/main">Click here</a> back to the Main Map.</p>
+
+<%- include('../partials/footer') %>

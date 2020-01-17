@@ -1,0 +1,11 @@
+<%- include('../partials/header') %>
+
+<ul>
+    <% rides.forEach(function(ride){ %>
+    <li><a href="/upperlot/<%= ride._id%>"><%= ride.name %></a></li>
+    <%})%>
+</ul>
+
+<p><a href="/main">Click here</a> back to the Main Map.</p>
+
+<%- include('../partials/footer') %>
