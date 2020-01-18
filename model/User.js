@@ -20,7 +20,10 @@ const userSchema = new mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: 'Ride'
     }],
-    favRides: [],
+    content: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Review'
+    }]
 })
 
 module.exports = mongoose.model('User', userSchema)

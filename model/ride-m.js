@@ -21,7 +21,15 @@ const rideSchema = new Schema({
     minHeight: {
         type: String,
         required: true
-    }
+    },
+    lotSection: {
+        type: String,
+        required: true
+    },
+    content: [{
+        type: String,
+        required: true
+    }]
 }, {
     timestamps: true
 }

@@ -17,6 +17,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/itinerary', isUser, iCtrl.itinerary)
+router.get('/itinerary/:id', isUser, iCtrl.newReview)
+
 router.post('/itinerary',isUser, iCtrl.add)
 
 router.delete('/:id', isUser, iCtrl.delete)

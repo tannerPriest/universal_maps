@@ -28,8 +28,17 @@ const deletePlan = (req, res) => {
     })
   })
 }
+const newReview = (req, res) => {
+  Ride.findById(req.params.id, (err, ride))
+  res.render('/users-v/review', {user: req.user, })
+}
+const postReview = (req, res) => {
+  res.render('/main')
+}
 module.exports = {
   itinerary,
   add,
-  delete: deletePlan
+  delete: deletePlan,
+  newReview,
+  postReview
   }

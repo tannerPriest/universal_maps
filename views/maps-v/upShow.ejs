@@ -5,6 +5,14 @@
 <h3><%= ride.detail %></h3>
 <h3>Type of Ride: <%= ride.rideType %>.</h3>
 <h3><img src="<%= ride.poster %>" alt="Ride photo"></h3>
+<h2>Reviews</h2>
+<ul>
+    <a href="/ride/new/<%= ride._id %>">Add a review!</a>
+    <% ride.content.forEach((review) =>{ %>
+    <li><%= review.content %></li>
+    <%})%>
+</ul>
+
 <p><a href="/upperlot">Back </a>to Upperlot section. </p>
 
 <%- include('../partials/footer') %>

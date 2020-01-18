@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "nodemon": "nodemon ./bin/www"
   },
   "dependencies": {
     "@hapi/joi": "^17.0.2",

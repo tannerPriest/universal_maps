@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+
+<h1>new review page</h1>
+<h3><%= ride.name %></h3>
+<form action="/ride/<%= ride._id %>" method="POST" name="newReview">
+    <input type="text" name="content">
+    <input type="submit" value="Add Review!">
+</form>
+<h3><img src="<%= ride.poster %>" alt="Ride photo"></h3>
+<p><a href="/<%=ride.lotSection%>/<%=ride._id%>>">Back </a>to ride. </p>
+
+<%- include('../partials/footer') %>

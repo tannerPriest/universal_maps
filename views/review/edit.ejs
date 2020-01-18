@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+
+<h1>edit ride review</h1>
+<h3><%= ride.name %></h3>
+<ul>
+    Reviews
+    <% ride.content.forEach((review) =>{ %>
+        <li><%= review %></li>
+    <%})%>
+</ul>
+<h3><img src="<%= ride.poster %>" alt="Ride photo"></h3>
+<p><a href="/<%=ride.lotSection%>/<%=ride._id%>">Back </a>to ride. </p>
+
+<%- include('../partials/footer') %>

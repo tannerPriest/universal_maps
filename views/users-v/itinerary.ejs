@@ -12,13 +12,13 @@
 
 </form>
 <ul>
-    <% rider.itinerary.forEach((plan)=>{ %>
+    <% rider.itinerary.forEach(plan=>{ %>
     <li>
-        <%= plan.name%>
-        <form action="/users/<%= plan._id %>?_method=DELETE" method="POST"><button value="Delete"
+        <a href="/<%-plan.lotSection%>/<%-plan._id%>"><%= plan.name%></a>
+        <form action="/users/<%- plan._id %>?_method=DELETE" method="POST"><button value="Delete"
                 type="submit">Delete</button></form>
     </li>
-    <%})%>
+   <% })%>
 </ul>
 
 <%- include('../partials/footer') %>
