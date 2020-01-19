@@ -13,7 +13,7 @@
             <%= riderReviews.content %>
             <% review.content.forEach(comment => { %>
                 <% if(comment._id.toString() === riderReviews._id.toString()){ %>
-                    <form action="/users/review/<%=comment._id%>"></form>
+                    <form action="/ride/review/<%=comment._id%>"><input type="submit" value="Edit Review"></form>
                 <%}%>
             <%})%>
         </li>

@@ -11,6 +11,8 @@ const isUser = (req, res, next) => {
 
 router.get('/new/:id', isUser, rideCtrl.show)
 
+router.get('/review/:id', isUser, rideCtrl.editReview)
+
 router.post('/:id', isUser, rideCtrl.newReview)
 
 module.exports = router;

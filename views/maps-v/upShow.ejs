@@ -8,8 +8,15 @@
 <h2>Reviews</h2>
 <ul>
     <a href="/ride/new/<%= ride._id %>">Add a review!</a>
-    <% ride.content.forEach((review) =>{ %>
-    <li><%= review.content %></li>
+    <% ride.content.forEach((riderReviews) =>{ %>
+    <li>
+        <%= riderReviews.content %>
+        <% review.content.forEach(comment => { %>
+        <% if(comment._id.toString() === riderReviews._id.toString()){ %>
+        <form action="/ride/review/<%=comment._id%>"><input type="submit" value="Edit Review"></form>
+        <%}%>
+                <%})%>
+    </li>
     <%})%>
 </ul>
 

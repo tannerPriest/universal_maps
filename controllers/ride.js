@@ -22,7 +22,15 @@ const newReview = (req, res) => {
         })
     })
 }
+const editReview = (req, res) => {
+    Ride.find({ content: req.params.id }, (err, ride) => {
+        Review.findById(req.params.id, (err, review) => {
+            res.render('review/edit', { title: 'Review Edit Page', user: req.user, review, ride })
+        })
+    })
+}
 module.exports = {
     show,
-    newReview
+    newReview,
+    editReview
 }

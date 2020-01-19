@@ -17,7 +17,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/itinerary', isUser, iCtrl.itinerary)
-router.get('/review/:id', isUser, iCtrl.editReview)
 
 router.post('/itinerary',isUser, iCtrl.add)
 
