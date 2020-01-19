@@ -27,8 +27,8 @@ const rideSchema = new Schema({
         required: true
     },
     content: [{
-        type: String,
-        required: true
+        type: Schema.Types.ObjectId,
+        ref: 'Review'
     }]
 }, {
     timestamps: true

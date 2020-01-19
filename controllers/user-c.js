@@ -35,10 +35,14 @@ const newReview = (req, res) => {
 const postReview = (req, res) => {
   res.render('/main')
 }
+const editReview = (req, res) => {
+  res.render('/users-v/reviewEdit')
+}
 module.exports = {
   itinerary,
   add,
   delete: deletePlan,
   newReview,
-  postReview
+  postReview,
+  editReview
   }

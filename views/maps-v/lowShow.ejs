@@ -8,11 +8,20 @@
 <h2>Reviews</h2>
 <ul>
     <a href="/ride/new/<%= ride._id %>">Add a review!</a>
-    <% ride.content.forEach((review) =>{ %>
-        <li><%= typeof review %></li>
+    <% ride.content.forEach((riderReviews) =>{ %>
+        <li>
+            <%= riderReviews.content %>
+            <% review.content.forEach(comment => { %>
+                <% if(comment._id.toString() === riderReviews._id.toString()){ %>
+                    <form action="/users/review/<%=comment._id%>"></form>
+                <%}%>
+            <%})%>
+        </li>
     <%})%>
 </ul>
 <h3><img src="<%= ride.poster %>" alt="Ride photo"></h3>
 <p><a href="/lowerlot">Back </a>to Lowerlot section. </p>
 
 <%- include('../partials/footer') %>
+
+<!-- { title: `${ride.name}`, userriderReviews, ride, user: req.user, content } -->

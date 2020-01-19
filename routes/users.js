@@ -17,10 +17,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/itinerary', isUser, iCtrl.itinerary)
-router.get('/itinerary/:id', isUser, iCtrl.newReview)
+router.get('/review/:id', isUser, iCtrl.editReview)
 
 router.post('/itinerary',isUser, iCtrl.add)
 
 router.delete('/:id', isUser, iCtrl.delete)
 
 module.exports = router;
+
+
