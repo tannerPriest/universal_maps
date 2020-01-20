@@ -1,24 +1,25 @@
 <%- include('../partials/header') %>
-
-<form action="/users/itinerary" method="POST">
-    <div class="form-group">
-        <select class="form-control" id="option" name="rideId">
+    <div>
+        <form action="/users/itinerary" method="POST">
+            <div class="form-group">
+                <select class="form-control" id="option" name="rideId">
             <%- rides.map(ride =>
         `<option value="${ride._id}">${ride.name}</option>`
         ).join('') %>
         </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Ride To Itinerary </button>
+
+        </form>
+        <ul>
+            <% rider.itinerary.forEach(plan=>{ %>
+                <li>
+                    <a href="/<%-plan.lotSection%>/<%-plan._id%>">
+                        <%= plan.name%>
+                    </a>
+                    <form action="/users/<%- plan._id %>?_method=DELETE" method="POST"><button value="Delete" type="submit" class="form-control button">Delete</button></form>
+                </li>
+                <% })%>
+        </ul>
     </div>
-    <button type="submit" class="btn btn-primary">Add Ride To Itinerary </button>
-
-</form>
-<ul>
-    <% rider.itinerary.forEach(plan=>{ %>
-    <li>
-        <a href="/<%-plan.lotSection%>/<%-plan._id%>"><%= plan.name%></a>
-        <form action="/users/<%- plan._id %>?_method=DELETE" method="POST"><button value="Delete"
-                type="submit">Delete</button></form>
-    </li>
-   <% })%>
-</ul>
-
-<%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>

@@ -1,14 +1,15 @@
 <%- include('../partials/header') %>
-
-    <ul>
-        <% rides.forEach(function(ride){ %>
-            <li>
-                <a href="/lowerlot/<%= ride._id%>">
-                    <%= ride.name %>
-                </a>
-            </li>
-            <%})%>
-    </ul>
-    <p><a href="/main">Click here</a> back to the Main Map.</p>
+    <div class="section">
+        <ul>
+            <% rides.forEach(function(ride){ %>
+                <li>
+                    <a href="/lowerlot/<%= ride._id%>">
+                        <%= ride.name %>
+                    </a>
+                </li>
+                <%})%>
+        </ul>
+        <p><a href="/main">Click here</a> back to the Main Map.</p>
+    </div>
 
     <%- include('../partials/footer') %>

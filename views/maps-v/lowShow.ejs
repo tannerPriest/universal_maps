@@ -1,29 +1,43 @@
 <%- include('../partials/header') %>
-
-<h1>SHOW PAGE per ride</h1>
-<h3><%= ride.name %></h3>
-<h3><%= ride.detail %></h3>
-<h3>Type of Ride: <%= ride.rideType %>.</h3>
-<h3><%= ride.lotSection %></h3>
-<h2>Reviews</h2>
-<ul>
-    <% let canReview = 1; %>
-    <% ride.content.forEach((riderReviews) =>{ %>
-    <li>
-        <%= riderReviews.content %>
-        <% review.content.forEach(comment => { %>
-        <% if(comment._id.toString() === riderReviews._id.toString()){ %>
-        <% canReview--; %>
-        <form action="/ride/review/<%=comment._id%>"><input type="submit" value="Edit Review"></form>
-        <%}%>
-        <%})%>
-    </li>
+<div class="section">
+    <h3>Ride Detail:</h3>
+    <p>
+        <%= ride.detail %>
+    </p>
+    <h3>Type of Ride:</h3>
+    <p>
+        <%= ride.rideType %>
+    </p>
+    <h3>Ride Location:</h3>
+    <p>
+        <%= ride.lotSection.toUpperCase() %>
+    </p>
+    <h2 style="text-decoration: underline;">Reviews</h2>
+    <ul>
+        <% let canReview = 1; %>
+        <% ride.content.forEach((riderReviews) =>{ %>
+        <li>
+            "<%= riderReviews.content %>"
+            <% review.content.forEach(comment => { %>
+            <% if(comment._id.toString() === riderReviews._id.toString()){ %>
+            <% canReview--; %>
+            <form action="/ride/review/<%=comment._id%>"><input type="submit" id="edit"
+                    class="form-control btn btn-primary" value="Edit Review"></form>
+            <%}%>
     <%})%>
-    <%if(canReview){ %>
-    <a href="/ride/new/<%= ride._id %>">Add a review!</a>
-    <% } %>
-</ul>
-<h3><img src="<%= ride.poster %>" alt="Ride photo"></h3>
-<p><a href="/lowerlot">Back </a>to Lowerlot section. </p>
+        </li>
+        <%})%>
+        <%if(canReview){ %>
+        <form action="/ride/new/<%= ride._id %>">
+            <button id="edit" class="form-control btn btn-primary" type="submit">Add a review!</button>
+        </form>
+        <% } %>
+    </ul>
+</div>
+<div>
+    <h3><img src="<%= ride.poster %>" alt="Ride photo"></h3>
+    <p><a href="/lowerlot">Back </a>to Lowerlot section. </p>
+</div>
+
 
 <%- include('../partials/footer') %>
