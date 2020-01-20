@@ -23,5 +23,3 @@ router.post('/itinerary', isUser, iCtrl.add)
 router.delete('/:id', isUser, iCtrl.delete)
 
 module.exports = router;
-
-
