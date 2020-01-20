@@ -12,8 +12,8 @@ const ride = (req, res) => {
         User.findById(req.user).populate('content').exec((err, review) => {
             if (err) return console.log(err)
             Review.find({ _id: { $nin: ride.content } }, (err, content) => {
-                    if (err) return res.render('error').status(400)
-                    res.render('maps-v/lowShow', { title: `${ride.name}`, ride, user: req.user, review, content })
+                if (err) return res.render('error').status(400)
+                res.render('maps-v/lowShow', { title: `${ride.name}`, ride, user: req.user, review, content })
             })
         })
     })

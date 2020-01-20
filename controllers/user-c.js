@@ -5,7 +5,7 @@ const itinerary = (req, res, next) => {
   User.findById(req.user)
     .populate('itinerary').exec((err, rider) => {
       Ride.find({ _id: { $nin: rider.itinerary } }, (err, rides) => {
-        res.render('users-v/itinerary', { title: "Itinerary Page", user: req.user, rider, rides })
+        res.render('users-v/itinerary', { title: "Itinerary", user: req.user, rider, rides })
       }
       )
     })
@@ -33,4 +33,4 @@ module.exports = {
   itinerary,
   add,
   delete: deletePlan
-  }
+}

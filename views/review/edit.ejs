@@ -1,17 +1,17 @@
 <%- include('../partials/header') %>
-    <div class="section">
-        <div class="form-group">
+<div class="section">
+    <div class="form-group">
         <form action="/ride/review/<%= review._id%>?_method=PATCH" method="POST">
             <input class="form-control" name="content" type="text" value="<%=review.content%>">
             <input class="form-control btn btn-primary" id="update" type="submit" value="Update Review">
         </form>
-        </div>
-        <div class="form-group">
+    </div>
+    <div class="form-group">
         <form action="/ride/review/<%= review._id%>?_method=DELETE" method="POST">
             <button class="form-control button" value="Delete" type="submit">Delete Review</button>
         </form>
-        </div>
-        <p><a href="/<%=ride.lotSection%>/<%=ride._id%>">Back </a>to ride. </p>
     </div>
+    <p><a href="/<%=ride.lotSection%>/<%=ride._id%>">Back </a>to ride. </p>
+</div>
 
-    <%- include('../partials/footer') %>
+<%- include('../partials/footer') %>

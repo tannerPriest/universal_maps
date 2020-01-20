@@ -6,7 +6,7 @@ const rideSchema = new Schema({
         type: String,
         required: true
     },
-    rideType:{
+    rideType: {
         type: String,
         required: true
     },

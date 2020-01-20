@@ -3,9 +3,9 @@ const rideCtrl = require('../controllers/ride');
 
 const isUser = (req, res, next) => {
   if (req.user) {
-      next()
+    next()
   } else {
-      res.redirect('/users')
+    res.redirect('/users')
   }
 }
 
