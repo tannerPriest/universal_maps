@@ -3,11 +3,11 @@ const router = express.Router();
 const upperCtrl = require('../controllers/upper-c.js');
 
 const isUser = (req, res, next) => {
-    // if(req.user){
+    if (req.user) {
         next()
-    // } else {
-    //     res.redirect('/users')
-    // }
+    } else {
+        res.redirect('/users')
+    }
 }
 
 router.get('/', isUser, upperCtrl.show);

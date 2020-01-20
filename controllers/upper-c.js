@@ -13,8 +13,7 @@ const ride = (req, res) => {
             if (err) return console.log(err)
             Review.find({ _id: { $nin: ride.content } }, (err, content) => {
                     if (err) return res.render('error').status(400)
-                    console.log(content)
-                    res.render('maps-v/lowShow', { title: `${ride.name}`, ride, user: req.user, review, content })
+                    res.render('maps-v/upShow', { title: `${ride.name}`, ride, user: req.user, review, content })
             })
         })
     })

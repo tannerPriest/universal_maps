@@ -1,25 +1,36 @@
 <%- include('../partials/header') %>
 
-<h1>SHOW PAGE per ride</h1>
-<h3><%= ride.name %></h3>
-<h3><%= ride.detail %></h3>
-<h3>Type of Ride: <%= ride.rideType %>.</h3>
-<h3><img src="<%= ride.poster %>" alt="Ride photo"></h3>
-<h2>Reviews</h2>
-<ul>
-    <a href="/ride/new/<%= ride._id %>">Add a review!</a>
-    <% ride.content.forEach((riderReviews) =>{ %>
-    <li>
-        <%= riderReviews.content %>
-        <% review.content.forEach(comment => { %>
-        <% if(comment._id.toString() === riderReviews._id.toString()){ %>
-        <form action="/ride/review/<%=comment._id%>"><input type="submit" value="Edit Review"></form>
-        <%}%>
+    <h1>SHOW PAGE per ride</h1>
+    <h3>
+        <%= ride.name %>
+    </h3>
+    <h3>
+        <%= ride.detail %>
+    </h3>
+    <h3>Type of Ride:
+        <%= ride.rideType %>.</h3>
+    <h3>
+        <%= ride.lotSection %>
+    </h3>
+    <h2>Reviews</h2>
+    <ul>
+        <% let canReview = 1; %>
+            <% ride.content.forEach((riderReviews) =>{ %>
+                <li>
+                    <%= riderReviews.content %>
+                        <% review.content.forEach(comment => { %>
+                            <% if(comment._id.toString() === riderReviews._id.toString()){ %>
+                                <% canReview--; %>
+                                    <form action="/ride/review/<%=comment._id%>"><input type="submit" value="Edit Review"></form>
+                                    <%}%>
+                                        <%})%>
+                </li>
                 <%})%>
-    </li>
-    <%})%>
-</ul>
+                    <%if(canReview){ %>
+                        <a href="/ride/new/<%= ride._id %>">Add a review!</a>
+                        <% } %>
+    </ul>
+    <h3><img src="<%= ride.poster %>" alt="Ride photo"></h3>
+    <p><a href="/upperlot">Back </a>to Upperlot section. </p>
 
-<p><a href="/upperlot">Back </a>to Upperlot section. </p>
-
-<%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>

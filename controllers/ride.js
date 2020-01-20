@@ -23,14 +23,40 @@ const newReview = (req, res) => {
     })
 }
 const editReview = (req, res) => {
+    Ride.find({ content: req.params.id }, (err, rideReview) => {
+        Review.findById(req.params.id, (err, review) => {
+            res.render('review/edit', { title: 'Review Edit Page', user: req.user, review, ride: rideReview[0] })
+        })
+    })
+}
+const updateReview = (req, res) => {
     Ride.find({ content: req.params.id }, (err, ride) => {
         Review.findById(req.params.id, (err, review) => {
-            res.render('review/edit', { title: 'Review Edit Page', user: req.user, review, ride })
+            review.content = req.body.content
+            review.save();
+            res.redirect(`/${ride[0].lotSection}/${ride[0]._id}`)
         })
+    })
+}
+const deleteReview = (req, res) => {
+    User.findById(req.user).exec((err, user) => {
+        let array = user.content
+        array.splice(array.indexOf(req.params.id), 1);
+        user.save()
+    })
+    Ride.find({ content: req.params.id }, (err, ride) => {
+        let array = ride[0].content
+        array.splice(array.indexOf(req.params.id), 1);
+        ride[0].save()
+        Review.deleteOne({ _id: req.params.id }, function (err) {
+            res.redirect(`/${ride[0].lotSection}/${ride[0]._id}`)
+        });
     })
 }
 module.exports = {
     show,
     newReview,
-    editReview
+    editReview,
+    updateReview,
+    deleteReview
 }

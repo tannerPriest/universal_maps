@@ -3,11 +3,11 @@ const router = express.Router();
 const lowerCtrl = require('../controllers/lower-c.js')
 
 const isUser = (req, res, next) => {
-    // if(req.user){
+    if (req.user) {
         next()
-    // } else {
-    //     res.redirect('/users')
-    // }
+    } else {
+        res.redirect('/users')
+    }
 }
 // isUser, 
 router.get('/', isUser, lowerCtrl.show)
