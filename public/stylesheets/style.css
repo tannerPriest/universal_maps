@@ -72,6 +72,7 @@ footer {
 .backPage {
     background-color: seashell;
     color: rgb(11, 0, 167);
+    width: max-content;
 }
 #option {
     width: 400px;
