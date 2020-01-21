@@ -73,6 +73,7 @@ footer {
     background-color: seashell;
     color: rgb(11, 0, 167);
     width: max-content;
+    border-radius: 5px;
 }
 #option {
     width: 400px;
