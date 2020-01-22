@@ -12,11 +12,11 @@ const newReview = (req, res) => {
     const review = new Review(req.body)
     review.save(err => {
         Ride.findById(req.params.id, (err, ride) => {
+            if (err) return console.log("GETTING TO reviewModel.create ERROR"), res.status(400), res.send('error');
             ride.content.push(review);
             ride.save();
             req.user.content.push(review);
             req.user.save();
-            if (err) return console.log("GETTING TO reviewModel.create ERROR"), res.status(400), res.send('error');
             res.status(200);
             res.redirect(`/${ride.lotSection}/${ride._id}`)
         })
