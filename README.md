@@ -22,10 +22,32 @@ Using Mongo Atlas as the data center, I give the user the ability to visit 2 dif
 
 ## Screenshots
 
-![Index Page](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Index Page")
+![Index Page](https://github.com/killerwhiteshark/universal_maps/blob/master/screenshots/Index.png?raw=true "Index Page")
 
+---
+![Main Page](https://github.com/killerwhiteshark/universal_maps/blob/master/screenshots/Main%20Page.png?raw=true "Main Page")
+
+---
+
+![upperlot Page](https://github.com/killerwhiteshark/universal_maps/blob/master/screenshots/Upperlot-section.png?raw=true "Upperlot Page")
+
+---
+![Lowerlot Page](https://github.com/killerwhiteshark/universal_maps/blob/master/screenshots/lowerlot.png?raw=true "Lowerlot Page")
 
 --- 
+![add review Page](https://github.com/killerwhiteshark/universal_maps/blob/master/screenshots/add-review.png?raw=true "Add Review")
+
+--- 
+![Itinerary Page](https://github.com/killerwhiteshark/universal_maps/blob/master/screenshots/itinerary.png?raw=true "Itinerary Page")
+
+--- 
+![List avaliable Page](https://github.com/killerwhiteshark/universal_maps/blob/master/screenshots/list-avaliable.png?raw=true "List avaliable Page")
+
+--- 
+![Ride Page](https://github.com/killerwhiteshark/universal_maps/blob/master/screenshots/ride-page.png?raw=true "Ride Page")
+
+--- 
+
 
 ## Next Steps
 
