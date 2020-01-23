@@ -17,11 +17,11 @@
         <% let canReview = 1; %>
         <% ride.content.forEach((riderReviews) =>{ %>
         <li>
-            <%= riderReviews.content %>
+            "<%= riderReviews.content %>"
             <% review.content.forEach(comment => { %>
             <% if(comment._id.toString() === riderReviews._id.toString()){ %>
             <% canReview--; %>
-            <form action="/ride/review/<%=comment._id%>"><input type="submit" id="edit"
+            -<form action="/ride/review/<%=comment._id%>"><input type="submit" id="edit"
                     class="form-control btn btn-primary" value="Edit Review"></form>
             <%}%>
     <%})%>
