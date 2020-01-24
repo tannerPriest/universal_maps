@@ -11,6 +11,7 @@
         <button type="submit" class="btn btn-primary">Add Ride To Itinerary </button>
 
     </form>
+   <% if(rider.itinerary.length){ %>
     <ul>
         <% rider.itinerary.forEach(plan=>{ %>
         <li>
@@ -22,5 +23,6 @@
         </li>
         <% })%>
     </ul>
+    <%}%>
 </div>
 <%- include('../partials/footer') %>
